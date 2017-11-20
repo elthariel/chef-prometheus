@@ -38,7 +38,7 @@ when 'systemd'
   dist_dir, conf_dir, env_file = value_for_platform_family(
     ['fedora'] => %w(fedora sysconfig prometheus),
     ['rhel'] => %w(redhat sysconfig prometheus),
-    ['debian'] => %w(debian default prometheus)
+    ['debian', 'ubuntu'] => %w(debian default prometheus)
   )
 
   template '/etc/systemd/system/prometheus.service' do
