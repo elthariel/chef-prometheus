@@ -23,10 +23,10 @@ include_recipe 'ark::default'
   package pkg
 end
 
-dir_name = ::File.basename(node['prometheus']['dir']) + '-alertmanager'
+dir_name = ::File.basename(node['prometheus']['dir'])
 dir_path = ::File.dirname(node['prometheus']['dir'])
 
-ark dir_name do
+ark dir_name + '-alertmanager' do
   url node['prometheus']['alertmanager']['binary_url']
   checksum node['prometheus']['alertmanager']['checksum']
   version node['prometheus']['alertmanager']['version']
